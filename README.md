@@ -39,9 +39,15 @@ User = sequelize.define('user', {
   rank: {
     type: Sequelize.STRING,
     roles: {
-      self: {set: false, get: true}
+      self: {set: false, get: true},
       admin: true
     }
+  }
+});
+
+User.hasMany(Project, {
+  roles: {
+    self: true
   }
 });
 
